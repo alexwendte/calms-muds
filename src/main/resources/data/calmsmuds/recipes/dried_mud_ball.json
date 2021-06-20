@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "calmsmuds:items/mudball"
+  },
+  "result": "calmsmuds:items/dried_mudball",
+  "experience": 0.35,
+  "cookingtime": 100
+}

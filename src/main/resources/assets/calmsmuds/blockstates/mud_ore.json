@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "calmsmuds:block/mud_ore"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["##", "##"],
+  "key": {
+    "#": {
+      "item": "calmsmuds:items/mudball"
+    }
+  },
+  "result": {
+    "item": "calmsmuds:blocks/mud_block"
+  }
+}
