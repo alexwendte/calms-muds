@@ -22,6 +22,6 @@ public class CalmsMuds implements ModInitializer {
 		CMItems.init();
 		CMEntities.init();
 		CMBlocks.init();
-		CMConfiguredFeatures.init();
+		// CMConfiguredFeatures.init();
 	}
 }

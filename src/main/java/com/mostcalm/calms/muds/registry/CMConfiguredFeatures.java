@@ -16,16 +16,22 @@ public class CMConfiguredFeatures {
 	// .25f))
 	// .build());
 
-	private static ConfiguredFeature<?, ?> MUD_ORE_OVERWORLD = register("mud_ore",
-			Feature.ORE
-					.configure(
-							new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, CMBlocks.MUD_ORE.getDefaultState(), 9))
-					.uniformRange(YOffset.getBottom(), YOffset.fixed(64)).spreadHorizontally().repeat(20));
+	// private static ConfiguredFeature<?, ?> MUD_ORE_OVERWORLD =
+	// register("mud_ore",
+	// Feature.ORE
+	// .configure(
+	// new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+	// CMBlocks.MUD_ORE.getDefaultState(), 9))
+	// .uniformRange(YOffset.getBottom(),
+	// YOffset.fixed(64)).spreadHorizontally().repeat(20));
 
-	private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id,
-			ConfiguredFeature<FC, ?> configuredFeature) {
-		return (ConfiguredFeature) Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, (String) id, configuredFeature);
-	}
+	// private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?>
+	// register(String id,
+	// ConfiguredFeature<FC, ?> configuredFeature) {
+	// return (ConfiguredFeature)
+	// Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, (String) id,
+	// configuredFeature);
+	// }
 
 	public static void init() {
 		// BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),

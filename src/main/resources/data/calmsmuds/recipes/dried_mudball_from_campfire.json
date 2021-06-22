@@ -1,9 +1,9 @@
 {
   "type": "minecraft:campfire_cooking",
   "ingredient": {
-    "item": "calmsmuds:items/mudball"
+    "item": "calmsmuds:mudball"
   },
-  "result": "calmsmuds:items/dried_mudball",
+  "result": "calmsmuds:dried_mudball",
   "experience": 0.35,
   "cookingtime": 100
 }

@@ -3,10 +3,10 @@
   "pattern": ["##", "##"],
   "key": {
     "#": {
-      "item": "calmsmuds:items/mudball"
+      "item": "calmsmuds:mudball"
     }
   },
   "result": {
-    "item": "calmsmuds:blocks/mud_block"
+    "item": "calmsmuds:mud_block"
   }
 }
