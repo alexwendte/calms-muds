@@ -1,7 +1,6 @@
 package com.mostcalm.calms.muds.item;
 
-import com.mostcalm.calms.muds.entity.MudballEntity;
-
+import com.mostcalm.calms.muds.entity.projectile.thrown.MudballEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,8 +18,9 @@ public class MudballItem extends Item {
 
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		ItemStack itemStack = user.getStackInHand(hand);
-		world.playSound((PlayerEntity) null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW,
-				SoundCategory.NEUTRAL, 0.5F, 0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
+		world.playSound((PlayerEntity) null, user.getX(), user.getY(), user.getZ(),
+				SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F,
+				0.4F / (world.getRandom().nextFloat() * 0.4F + 0.8F));
 		if (!world.isClient) {
 			MudballEntity mudballEntity = new MudballEntity(world, user);
 			mudballEntity.setItem(itemStack);

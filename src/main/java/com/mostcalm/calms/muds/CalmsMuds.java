@@ -1,13 +1,15 @@
 package com.mostcalm.calms.muds;
 
-import com.mostcalm.calms.muds.registry.*;
+import com.mostcalm.calms.muds.block.Blocks;
+import com.mostcalm.calms.muds.entity.EntityTypes;
+import com.mostcalm.calms.muds.item.Items;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 
 public class CalmsMuds implements ModInitializer {
-	public static Identifier id(String name) {
-		return new Identifier("calmsmuds", name);
+	public static Identifier id(String id) {
+		return new Identifier("calmsmuds", id);
 	}
 
 	@Override
@@ -19,9 +21,9 @@ public class CalmsMuds implements ModInitializer {
 
 		System.out.println("Hello Fabric world!");
 
-		CMItems.init();
-		CMEntities.init();
-		CMBlocks.init();
+		Items.init();
+		EntityTypes.init();
+		Blocks.init();
 		// CMConfiguredFeatures.init();
 	}
 }

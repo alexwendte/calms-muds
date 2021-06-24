@@ -19,6 +19,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
+@SuppressWarnings("deprecation")
 public class MudOreBlock extends Block {
 	public static final BooleanProperty HARDENED = BooleanProperty.of("hardened");
 
@@ -47,8 +48,8 @@ public class MudOreBlock extends Block {
 	}
 
 	@Override
-	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand,
-			BlockHitResult hit) {
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player,
+			Hand hand, BlockHitResult hit) {
 		if (!world.isClient) {
 			boolean hardened = state.get(HARDENED);
 			world.setBlockState(pos, state.with(HARDENED, !hardened));
@@ -58,7 +59,8 @@ public class MudOreBlock extends Block {
 	}
 
 	@Override
-	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world, BlockPos pos) {
+	public float calcBlockBreakingDelta(BlockState state, PlayerEntity player, BlockView world,
+			BlockPos pos) {
 		float f = state.getHardness(world, pos);
 		if (f == -1.0F) {
 			return 0.0F;

@@ -2,24 +2,31 @@
   "schemaVersion": 1,
   "id": "calmsmuds",
   "version": "${version}",
-
   "name": "Calms Muds",
   "description": "Configure your inventory through in game items and guis",
-  "authors": ["MostCalm"],
+  "authors": [
+    "MostCalm"
+  ],
   "contact": {
     "homepage": "https://github.com/alexwendte/fabric-example-mod",
     "sources": "https://github.com/alexwendte/fabric-example-mod"
   },
-
   "license": "CC BY-NA-SA 3.0",
   "icon": "assets/calmsmuds/icon.png",
-
   "environment": "*",
   "entrypoints": {
-    "main": ["com.mostcalm.calms.muds.CalmsMuds"]
+    "main": [
+      "com.mostcalm.calms.muds.CalmsMuds"
+    ],
+    "client": [
+      {
+        "value": "com.mostcalm.calms.muds.CalmsMudsClient"
+      }
+    ]
   },
-  "mixins": ["calmsmuds.mixins.json"],
-
+  "mixins": [
+    "calmsmuds.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",

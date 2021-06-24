@@ -1,4 +1,4 @@
-package com.mostcalm.calms.muds.registry;
+package com.mostcalm.calms.muds.configuredFeature;
 
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
-public class CMConfiguredFeatures {
+public class ConfiguredFeatures {
 	// public static final EntityType<MudballEntity> SPEAR = register("spear",
 	// FabricEntityTypeBuilder.<MudballEntity>create(SpawnGroup.MISC,
 	// (MudballEntity::new)).trackRangeBlocks(128)
@@ -39,7 +39,7 @@ public class CMConfiguredFeatures {
 		// mudOreOverworld);
 	}
 
-	private CMConfiguredFeatures() {
+	private ConfiguredFeatures() {
 		// NO-OP
 	}
 }
