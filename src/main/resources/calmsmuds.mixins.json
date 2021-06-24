@@ -2,9 +2,11 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.mostcalm.calms.muds.mixin",
-  "compatibilityLevel": "JAVA_16",
+  "compatibilityLevel": "JAVA_11",
   "mixins": [],
-  "client": ["ExampleMixin"],
+  "client": [
+    "ExampleMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import com.mostcalm.calms.muds.entity.EntitySpawnPacket;
 import com.mostcalm.calms.muds.entity.EntityTypes;
+import com.mostcalm.calms.muds.entity.projectile.thrown.MudballEntity;
 
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
@@ -18,12 +19,13 @@ import net.minecraft.util.registry.Registry;
 public class CalmsMudsClient implements net.fabricmc.api.ClientModInitializer {
 
   public static final Identifier PacketID = CalmsMuds.id("spawn_packet");
+  private MudballEntity MudballEntity;
 
   @Override
   public void onInitializeClient() {
-    // EntityRendererRegistry.INSTANCE.register(EntityTypes.MUDBALL, MudballEntityRenderer::new);
     EntityRendererRegistry.INSTANCE.register(EntityTypes.MUDBALL,
-        (context) -> new FlyingItemEntityRenderer(context));
+        (context, Context) -> new FlyingItemEntityRenderer(context,
+            Context.getItemRenderer()));
     receiveEntityPacket();
   }
 
@@ -46,9 +48,9 @@ public class CalmsMudsClient implements net.fabricmc.api.ClientModInitializer {
                   + Registry.ENTITY_TYPE.getId(et) + "\"!");
         e.updateTrackedPosition(pos);
         e.setPos(pos.x, pos.y, pos.z);
-        e.setPitch(pitch);
-        e.setYaw(yaw);
-        e.setId(entityId);
+        e.pitch = pitch;
+        e.yaw = yaw;
+        e.setEntityId(entityId);
         e.setUuid(uuid);
         MinecraftClient.getInstance().world.addEntity(entityId, e);
       });

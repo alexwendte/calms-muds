@@ -5,6 +5,8 @@ import com.mostcalm.calms.muds.entity.EntitySpawnPacket;
 import com.mostcalm.calms.muds.entity.EntityTypes;
 import com.mostcalm.calms.muds.item.Items;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -22,7 +24,7 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("EntityConstructor")
 public class MudballEntity extends ThrownItemEntity {
-  public MudballEntity(EntityType<? extends MudballEntity> entityType,
+  public MudballEntity(EntityType<? extends ThrownItemEntity> entityType,
       World world) {
     super(entityType, world);
   }
@@ -39,12 +41,14 @@ public class MudballEntity extends ThrownItemEntity {
     return Items.MUDBALL;
   }
 
+  @Environment(EnvType.CLIENT)
   private ParticleEffect getParticleParameters() {
     ItemStack itemStack = this.getItem();
     return (ParticleEffect) (itemStack.isEmpty() ? ParticleTypes.ITEM_SNOWBALL
         : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack));
   }
 
+  @Environment(EnvType.CLIENT)
   public void handleStatus(byte status) {
     if (status == 3) {
       ParticleEffect particleEffect = this.getParticleParameters();
@@ -69,7 +73,7 @@ public class MudballEntity extends ThrownItemEntity {
     super.onCollision(hitResult);
     if (!this.world.isClient) {
       this.world.sendEntityStatus(this, (byte) 3);
-      this.discard();
+      this.remove();
     }
 
   }
