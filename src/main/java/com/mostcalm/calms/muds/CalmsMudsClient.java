@@ -4,8 +4,11 @@ import java.util.UUID;
 
 import com.mostcalm.calms.muds.entity.EntitySpawnPacket;
 import com.mostcalm.calms.muds.entity.EntityTypes;
-import com.mostcalm.calms.muds.entity.projectile.thrown.MudballEntity;
+import com.mostcalm.calms.muds.item.Items;
+import com.mostcalm.calms.muds.particle.CMParticleTypes;
+import com.mostcalm.calms.muds.particle.MudballParticle;
 
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.client.MinecraftClient;
@@ -19,13 +22,16 @@ import net.minecraft.util.registry.Registry;
 public class CalmsMudsClient implements net.fabricmc.api.ClientModInitializer {
 
   public static final Identifier PacketID = CalmsMuds.id("spawn_packet");
-  private MudballEntity MudballEntity;
 
   @Override
   public void onInitializeClient() {
     EntityRendererRegistry.INSTANCE.register(EntityTypes.MUDBALL,
         (context, Context) -> new FlyingItemEntityRenderer(context,
             Context.getItemRenderer()));
+    ParticleFactoryRegistry.getInstance()
+        .register(CMParticleTypes.ITEM_MUDBALL,
+            // new MudballParticle.Factory(new MudballItem(new Item.Settings())));
+            new MudballParticle.Factory(Items.MUDBALL));
     receiveEntityPacket();
   }
 

@@ -4,6 +4,7 @@ import com.mostcalm.calms.muds.CalmsMudsClient;
 import com.mostcalm.calms.muds.entity.EntitySpawnPacket;
 import com.mostcalm.calms.muds.entity.EntityTypes;
 import com.mostcalm.calms.muds.item.Items;
+import com.mostcalm.calms.muds.particle.CMParticleTypes;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -44,7 +45,7 @@ public class MudballEntity extends ThrownItemEntity {
   @Environment(EnvType.CLIENT)
   private ParticleEffect getParticleParameters() {
     ItemStack itemStack = this.getItem();
-    return (ParticleEffect) (itemStack.isEmpty() ? ParticleTypes.ITEM_SNOWBALL
+    return (ParticleEffect) (itemStack.isEmpty() ? CMParticleTypes.ITEM_MUDBALL
         : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack));
   }
 
